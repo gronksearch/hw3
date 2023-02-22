@@ -1,5 +1,21 @@
 <h1><%= @places["name"] %></h1>
 
+<h2>Posts</h2>
+
+<ul>
+  <% for post in @posts %>
+    <h3><%= post["title"]%></h3>
+    <p>
+        <%= post["posted_on"]%>
+        <%= post["description"]%>
+    </p> 
+  <% end %>
+</ul>
+
+<p>
+  <a href="/contacts/new?company_id=<%= @company["id"] %>">New Contact</a>
+</p>
+
 <p><a href="/places">Back to All Places</a></p>
 
 <p><%= button_to "Delete this place", @place, :method => "delete" %></p>
