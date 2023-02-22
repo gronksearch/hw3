@@ -1,10 +1,8 @@
 <h1><%= @places["name"] %></h1>
 
-<h2>Posts</h2>
-
 <ul>
   <% for post in @posts %>
-    <h3><%= post["title"]%></h3>
+    <h2><%= post["title"]%></h2>
     <p>
         <%= post["posted_on"]%>
         <%= post["description"]%>
@@ -13,7 +11,7 @@
 </ul>
 
 <p>
-  <a href="/contacts/new?company_id=<%= @company["id"] %>">New Contact</a>
+  <a href="/posts/new?posts_id=<%= @places["id"] %>">New Post</a>
 </p>
 
 <p><a href="/places">Back to All Places</a></p>

@@ -1,19 +1,19 @@
 <h1>New Post</h1>
 
-<%= form_with :model => @contact do |form| %>
+<%= form_with :model => @posts do |form| %>
   <p>
-    <%= form.label "first_name" %>
-    <%= form.text_field "first_name" %>
-    <%= form.label "last_name" %>
-    <%= form.text_field "last_name" %>
+    <%= form.label "Title" %>
+    <%= form.text_field "title" %>
   </p>
   <p>
-    <%= form.label "email" %>
-    <%= form.text_field "email" %>
-    <%= form.label "phone_number" %>
-    <%= form.text_field "phone_number" %>
+    <%= form.label "Posted on" %>
+    <%= form.text_field "posted_on" %>
+  </p>
+  <p>
+    <%= form.label "Description" %>
+    <%= form.text_field "description" %>
   </p>
   <!-- So we can transfer state from the previous action to the next -->
-  <%= form.hidden_field "company_id" %>
+  <%= form.hidden_field "place_id" %>
   <%= form.submit %>
 <% end %>
