@@ -1,24 +1,28 @@
 class PostsController < ApplicationController
-
+    
+    def index 
+        @posts = Post.all 
+    end
+    
     def show 
-        @posts = Post.find_by({ "id" => params["id"] })
-        @places = Places.find_by({ "id" => @places["place_id"] })
+        @post = Post.find_by({ "id" => params["id"] })
+        @place = Places.find_by({ "id" => @place["place_id"] })
+        @post["place_id"] = @place["id"]
     end
 
     def new
-        @posts = Post.new
-        @places = Place.find_by({ "id" => params["place_id"] })
-        @posts["place_id"] = @places["id"]
+        @post = Post.new
+        @place = Place.find_by({ "id" => params["place_id"] })
     end
     
     def create
-        @posts = Post.new
-        @posts["title"] = params["post"]["title"]
-        @posts["posted_on"] = params["post"]["posted_on"]
-        @posts["description"] = params["post"]["description"]
-        @posts["place_id"] = params["place"]["place_id"]
-        @posts.save
-        redirect_to "/places/#{@posts["places_id"]}"
+        @post = Post.new
+        @post["title"] = params["post"]["title"]
+        @post["posted_on"] = params["post"]["posted_on"]
+        @post["description"] = params["post"]["description"]
+        @post["place_id"] = params["post"]["place_id"]
+        @post.save
+        redirect_to "/places"
     end
 
 end
